@@ -52,4 +52,10 @@ public class OfferService {
         Offer offer = new Offer(offerForm.getTitle(), offerForm.getDescription(), offerForm.getImgUrl(), offerForm.getPrice(), category);
         offerRepository.save(offer);
     }
+
+    public OfferDto findOne(Long id) {
+        return offerRepository.findById(id)
+                .map(this::toDto)
+                .orElseThrow(IllegalArgumentException::new);
+    }
 }

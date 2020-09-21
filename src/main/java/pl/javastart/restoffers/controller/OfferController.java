@@ -25,6 +25,11 @@ public class OfferController {
         return offerService.findAll(filters);
     }
 
+    @GetMapping("/offers/{id}")
+    OfferDto getOffer(@PathVariable Long id) {
+        return offerService.findOne(id);
+    }
+
     @GetMapping("/offers/count")
     Long countOffers() {
         return offerService.countAll();

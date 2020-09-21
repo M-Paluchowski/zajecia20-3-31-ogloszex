@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import pl.javastart.restoffers.controller.dto.CategoryDto;
 import pl.javastart.restoffers.service.CategoryService;
 
 import java.util.List;
@@ -22,5 +23,10 @@ public class CategoryController {
     @GetMapping("/categories/names")
     List<String> findCategoriesNames() {
         return categoryService.findNames();
+    }
+
+    @GetMapping("/categories")
+    List<CategoryDto> findAll() {
+        return categoryService.findAll();
     }
 }
